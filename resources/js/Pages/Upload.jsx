@@ -1,9 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import Timer2 from '../components/Timer2';
 
 function Upload() {
+    // collect image from the input file
+    const [image, setImage] = useState(null)
+
+    
+
+    const handleFileSubmission = (event) => {
+        
+    }
+
+    const handleFileChanged = (event) => {
+        const selectedFiles = event.target.files;
+        if (selectedFiles.length > 0) {
+            var file = selectedFiles[0];
+            console.log('Selected file name:', file.name);
+            console.log('Selected file size:', file.size);
+            console.log('Selected file type:', file.type);
+            if(file.size < 5000){
+              setImage(URL.createObjectURL(file))
+            }
+          // log in file too big error
+        }
+       
+    }
+   
     return (
         <div>
+            <Timer2/>
+            
               
                 <div className="border-b-2 py-4">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -27,7 +53,7 @@ function Upload() {
                  <div >
                      <div className="mb-5 text-center">
                          <div className="mx-auto w-32 h-32 mb-2 border rounded-full relative bg-gray-100 mb-4 shadow-inset">
-                             <img id="image" className="object-cover w-full h-32 rounded-full" />
+                             <img id="image" className="object-cover w-full h-32 rounded-full" src={image} />
                          </div>
                          
                          <label 
@@ -45,7 +71,7 @@ function Upload() {
 
                          <div className="mx-auto w-48 text-gray-500 text-xs text-center mt-1">Click to add profile picture</div>
 
-                         <input name="photo" id="fileInput" accept="image/*" className="hidden" type="file" />
+                         <input name="photo" id="fileInput" accept="image/*" className="hidden" type="file" onChange={handleFileChanged} />
                         
                             
                      </div>
