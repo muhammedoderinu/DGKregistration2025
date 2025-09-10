@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Timer2 from '../components/Timer2';
 
-function Upload() {
+export default function Upload() {
     // collect image from the input file
     const [image, setImage] = useState(null)
 
@@ -18,7 +18,7 @@ function Upload() {
             console.log('Selected file name:', file.name);
             console.log('Selected file size:', file.size);
             console.log('Selected file type:', file.type);
-            if(file.size < 5000){
+            if(file.size < 50000){
               setImage(URL.createObjectURL(file))
             }
           // log in file too big error
@@ -28,8 +28,7 @@ function Upload() {
    
     return (
         <div>
-            <Timer2/>
-            
+        
               
                 <div className="border-b-2 py-4">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -98,5 +97,5 @@ function Upload() {
     );
 }
 
-export default Upload;
+
 

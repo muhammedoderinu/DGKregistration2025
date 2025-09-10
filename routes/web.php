@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\UserLoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[ImageUploadController::class, 'index']);
+Route::post('upload/index',[ImageUploadController::class, 'index'])->name('upload.index');
+Route::get('/', [UserLoginController::class, 'index']);
+Route::post('/user/login', [UserLoginController::class, 'store']);
