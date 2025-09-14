@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import Timer2 from '../components/Timer2';
+import { router } from '@inertiajs/react';
 
 export default function Upload() {
     // collect image from the input file
     const [image, setImage] = useState(null)
+    const [file, setFile] = useState(null)
 
     
 
     const handleFileSubmission = (event) => {
-        
+      const formData = new FormData();
+      formData.append('avatar', file); 
+        router.post('/profile-upload', formData)
     }
 
     const handleFileChanged = (event) => {
         const selectedFiles = event.target.files;
         if (selectedFiles.length > 0) {
             var file = selectedFiles[0];
+            setFile(file)
             console.log('Selected file name:', file.name);
             console.log('Selected file size:', file.size);
             console.log('Selected file type:', file.type);
@@ -84,7 +89,7 @@ export default function Upload() {
                     <div className="max-w-3xl mx-auto px-4">
                         <div className="flex justify-center items-center">
                         
-                                <button
+                                <button onClick={handleFileSubmission}
                                     id = 'upload'
                                     className="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium" 
                                 >Complete</button>

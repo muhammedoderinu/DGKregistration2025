@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class UserLoginController extends Controller
@@ -19,7 +21,10 @@ class UserLoginController extends Controller
         $request->validate([
             'email' => 'required|email|exists:users,email'
         ]);
+        $user = User::where('email', $request->email)->first();
 
+        Auth::login($user);
+     
         return Inertia::render('Upload');
        
     }

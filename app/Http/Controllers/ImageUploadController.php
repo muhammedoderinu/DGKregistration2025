@@ -18,6 +18,7 @@ class ImageUploadController extends Controller
     {
         $request->validate([
             'avatar' => 'required|image|file|max:5000',
+            
         ]);
 
        
@@ -41,7 +42,7 @@ class ImageUploadController extends Controller
            
         }
 
-        return ['status' => 'OK'];
+        return Inertia::render('ParticipantTag');
 
     }
 }
