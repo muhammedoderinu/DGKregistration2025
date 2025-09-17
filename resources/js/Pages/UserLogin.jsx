@@ -35,7 +35,7 @@ export default function UserLogin(){
        
 
         <div className='bg-dots-darker items-center justify-center  bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900'>
-             <Timer2></Timer2>
+             
         
 
 

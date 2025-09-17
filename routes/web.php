@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\ParticipantTagController;
+use App\Http\Controllers\QRScanController;
+use App\Http\Controllers\ScanSuccessController;
 use App\Http\Controllers\UserLoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +23,5 @@ Route::get('/', [UserLoginController::class, 'index']);
 Route::post('/user/login', [UserLoginController::class, 'store']);
 Route::get('tag',[ParticipantTagController::class, 'index']);
 Route::post('/profile-upload', [ImageUploadController::class, 'store']);
+Route::get('/qr-scan', [QRScanController::class, 'index']);
+Route::get('/scan-success', [ScanSuccessController::class, 'index']);

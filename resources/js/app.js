@@ -8,5 +8,4 @@ import '../css/app.css';
 
 import './app.jsx';
 
-import "../css/frontTag.css"
 

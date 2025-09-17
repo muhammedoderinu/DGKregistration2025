@@ -39,10 +39,12 @@ class ImageUploadController extends Controller
                 'disk' => $disk,        
             ]);
 
+            $imagePath = asset('storage/'.$image);
+
            
         }
 
-        return Inertia::render('ParticipantTag');
+        return Inertia::render('ParticipantTag', ['imagePath'=> $imagePath]);
 
     }
 }

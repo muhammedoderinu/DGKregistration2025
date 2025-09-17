@@ -1,7 +1,7 @@
 
 import html2canvas from "html2canvas";
 import React, { useRef } from 'react';
-export default function ParticipantTag()
+export default function ParticipantTag({imagePath})
 {
     const myStyles = {
         position: 'relative',
@@ -9,6 +9,8 @@ export default function ParticipantTag()
 
         
     };
+
+    console.log(imagePath)
 
     const image = {
     width: '40%',
@@ -67,11 +69,14 @@ export default function ParticipantTag()
                             <br></br>
                             <br></br>
                             <br></br>
-                            <div  className="w-24 h-24 my-30   mx-auto  rounded-full overflow-hidden">
-                                <img  alt="Profile Photo" className="w-full my-20 h-full object-cover grayscale"/>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <div  className="w-24 h-24  rounded-full overflow-hidden">
+                                <img src= {imagePath} alt="Profile Photo" className="w-full my-9 h-full object-cover grayscale"/>
                             </div>
 
-                            <h2 className="text-center mt-3 font-bold text-lg text-black">SARAH<br/>MARTINEZ</h2>
+                            <h2 className="text-center font-bold text-xs text-black">Muhammed Oderinu</h2>
 
                           
                         </div>
